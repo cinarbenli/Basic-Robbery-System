@@ -27,7 +27,7 @@ namespace RobberySystem
             if (Physics.Raycast(pl.Player.look.aim.position, pl.Player.look.aim.forward, out RaycastHit hit, 10, RayMasks.PLAYER) && hit.transform.TryGetComponent(out Player player))
             {
                 UnturnedPlayer pls = UnturnedPlayer.FromPlayer(player);
-                if (pls != null) return;
+                if (pls == null) return;
                 if (pls.Player.animator.gesture != EPlayerGesture.SURRENDER_START) return;
                 pls.Player.equipment.dequip();
                 DropAll(pls);
